@@ -44,14 +44,15 @@ pub unsafe fn do_loop(flags: Arc<Mutex<u8>>) {
     }
 }
 
-#[allow(unreachable_code)]
 pub fn window_runaway(window: &Window, width: i32, height: i32) {
-    if window.title() == "" {
-        return;
+    if window.title() != "" {
+        let (x, y) = match get_cursor_position() {
+            Some(xy) => xy,
+            None => {
+                return;
+            }
+        };
+        let (nx, ny, nw, nh) = calculate_new_position((x, y), (width, height));
+        window.resize(nx, ny, nw, nh);
     }
-    let (x, y) = get_cursor_position().unwrap_or({
-        return;
-    });
-    let (nx, ny, nw, nh) = calculate_new_position((x, y), (width, height));
-    window.resize(nx, ny, nw, nh);
 }
