@@ -1,0 +1,12 @@
+[package]
+name = "nawanai-victim"
+version = "0.1.0"
+edition = "2021"
+author = "Person"
+description = "An image"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+notify-rust = "4.10.0"
+winapi = { version = "0.3.9", features = ["winuser", "handleapi", "processthreadsapi"] }

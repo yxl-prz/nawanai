@@ -1,0 +1,119 @@
+import { Button, VerticalBox, GroupBox, HorizontalBox, LineEdit, TextEdit } from "std-widgets.slint";
+
+import { StyleMetrics, StandardButton } from "std-widgets.slint";
+import { PrimaryButton, SecondaryButton, Styling, Palette } from "./styling.slint";
+
+export component AppWindow inherits Window {
+    title: "NAWANAI";
+    in-out property <string> wTitle <=> titl.text;
+    in-out property <int> connections: 0;
+    callback power-action(int);
+    callback notify(int);
+    callback misc(int);
+    callback show-error();
+    show-error() => {
+        error-popup.show();
+    }
+    background: Palette.background;
+    VerticalBox {
+        titl := Text {
+            font-size: 15px;
+            horizontal-alignment: center;
+            text: "NAWANAI v0.1";
+            color: Palette.text_color;
+            font-weight: 700;
+        }
+        GroupBox {
+            title: "Information";
+            Text {
+                text: "Connections: " + connections;
+            }
+        }
+        GroupBox {
+            title: "Power Actions";
+            max-height: 90px;
+            HorizontalBox {
+                PrimaryButton {
+                    text: "Shutdown";
+                    clicked => {
+                        power-action(0);
+                    }
+                }
+                PrimaryButton {
+                    text: "Restart";
+                    clicked => {
+                        power-action(1);
+                    }
+                }
+            }
+        }
+        GroupBox {
+            title: "Notifications";
+            max-height: 90px;
+            HorizontalBox {
+                padding-top: StyleMetrics.layout-padding;
+                padding-bottom: StyleMetrics.layout-padding;
+                spacing: StyleMetrics.layout-spacing;
+                PrimaryButton {
+                    text: "Fake Update";
+                    clicked => {
+                        notify(0);
+                    }
+                }
+                PrimaryButton {
+                    text: "Virus Detected";
+                    clicked => {
+                        notify(1);
+                    }
+                }
+            }
+        }
+        GroupBox {
+            title: "Misc";
+            max-height: 90px;
+            HorizontalBox {
+                padding-top: StyleMetrics.layout-padding;
+                padding-bottom: StyleMetrics.layout-padding;
+                spacing: StyleMetrics.layout-spacing;
+                PrimaryButton {
+                    text: "Can't click Me";
+                    clicked => {
+                        misc(1);
+                    }
+                }
+                PrimaryButton {
+                    text: "Mouse Gravity";
+                    clicked => {
+                        misc(2);
+                    }
+                }
+            }
+        }
+    }
+
+    
+    error_popup := PopupWindow {
+        in-out property <string> error <=> error_message.text;
+        x: 40px;
+        y: 100px;
+        width: min(diag.preferred-width, root.width - 80px);
+
+        Rectangle {
+            background: Palette.background;
+            border-color: Palette.secondary.darker(20%);
+            border-width: 1px;
+        }
+
+        diag := Dialog {
+            height: 100%;
+            width: 100%;
+            error_message := Text {
+                text: "";
+                wrap: word-wrap;
+            }
+
+            StandardButton {kind: ok;}
+        }
+    }
+}
+

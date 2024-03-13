@@ -1,0 +1,44 @@
+import { Button } from "std-widgets.slint";
+export global Styling {
+    in property <int> name;
+}
+
+export global Palette {
+    in property <color> background: rgb(26, 21, 21);
+    in property <color> text_color: rgb(247, 235, 235);
+    in property <color> primary: rgb(200, 27, 35);
+    in property <color> secondary: rgb(152, 12, 12);
+    in property <color> accent: rgb(254, 2, 2);
+}
+
+export component PrimaryButton inherits Rectangle {
+    in-out property text <=> txt.text;
+    in-out property radius <=> self.border-radius;
+    callback clicked <=> touch.clicked;
+    border-radius: self.height/5;
+    border-width: 1px;
+    border-color: root.background.darker(25%);
+    background: touch.pressed ? Palette.primary : touch.has-hover ? Palette.primary.darker(10%) : Palette.primary.darker(25%);
+    height: txt.preferred-height * 2.3;
+    min-width: txt.preferred-width * 1.4;
+    txt := Text {
+        color: touch.pressed ? Palette.text_color.darker(10%) : Palette.text_color;
+    }
+    touch := TouchArea { }
+}
+
+export component SecondaryButton inherits Rectangle {
+    in-out property text <=> txt.text;
+    in-out property radius <=> self.border-radius;
+    callback clicked <=> touch.clicked;
+    border-radius: self.height/5;
+    border-width: 1px;
+    border-color: root.background.darker(25%);
+    background: touch.pressed ? Palette.secondary : touch.has-hover ? Palette.secondary.darker(10%) : Palette.secondary.darker(25%);
+    height: txt.preferred-height * 2.3;
+    min-width: txt.preferred-width * 1.4;
+    txt := Text {
+        color: touch.pressed ? Palette.text_color.darker(10%) : Palette.text_color;
+    }
+    touch := TouchArea { }
+}
