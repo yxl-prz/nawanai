@@ -22,7 +22,7 @@ There are 2 sections to this part of the program.
 * Await for TCP messages from the server and do different actions based on the received packets.
 
 # Communications
-By default the [`BUFFER_SIZE`](./src/tcp.rs#L10) is 6. Meaning an array of 6 bytes is in charge of communications. Both sides (intruder & victim) need have the same flags for the different actions to be executed.
+By default the [`BUFFER_SIZE`](./nawanai-victim/src/main.rs#L43) is 6. Meaning an array of 6 bytes is in charge of communications. Both sides (intruder & victim) need have the same flags for the different actions to be executed.
 
 # Disclaimer
 This software is provided for educational and entertainment purposes only. The author and contributors do not condone or support any misuse of this software. The user is solely responsible for any actions taken using this software. By downloading, installing, or using this software, the user agrees to take full responsibility for any consequences that may arise.
