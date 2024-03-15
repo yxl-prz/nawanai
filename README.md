@@ -24,6 +24,11 @@ There are 2 sections to this part of the program.
 # Communications
 By default the [`BUFFER_SIZE`](./nawanai-victim/src/main.rs#L43) is 6. Meaning an array of 6 bytes is in charge of communications. Both sides (intruder & victim) need have the same flags for the different actions to be executed.
 
+# Team
+Members of the 名はない team:
+- [yxl-prz](https://github.com/yxl-prz) (Me)
+- [PotatoAle](https://github.com/PotatoAle)
+
 # Other Information
 This project was rated
 - 90/100 by Vasilhs S (Computer Science Masters)
