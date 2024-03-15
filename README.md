@@ -30,8 +30,9 @@ Members of the 名はない team:
 - [PotatoAle](https://github.com/PotatoAle)
 
 # Other Information
+![Valencia Badge](./valencia-badge.png)
 This project was rated
-- 90/100 by Vasilhs S (Computer Science Masters)
-- 90/100 by Ivan G (Computer Science Masters)
+- 🇬🇷 90/100 by Vasilhs S. (Computer Science Masters)
+- 🇧🇬 90/100 by Ivan G. (Computer Science Masters)
 # Disclaimer
 This software is provided for educational and entertainment purposes only. The author and contributors do not condone or support any misuse of this software. The user is solely responsible for any actions taken using this software. By downloading, installing, or using this software, the user agrees to take full responsibility for any consequences that may arise.
