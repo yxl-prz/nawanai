@@ -1,4 +1,4 @@
-# 名はない - Intruder
+# 名はない
 Malware made for educational purposes. This was mainly made as a submission for a hackathon, please read the disclaimer.
 
 # Objective & Limits
